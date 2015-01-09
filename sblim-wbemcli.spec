@@ -13,6 +13,8 @@ Source0:	http://downloads.sourceforge.net/sblim/%{name}-%{version}.tar.bz2
 # Source0-md5:	521e64351e663e12f6a19ed1a2fa8e79
 Patch0:		%{name}-python.patch
 URL:		http://sblim.sourceforge.net/
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.3
 BuildRequires:	libstdc++-devel
 %if %{with python}
