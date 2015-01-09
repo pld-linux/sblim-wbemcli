@@ -1,0 +1,17 @@
+--- sblim-wbemcli-1.6.3/configure.ac.orig	2014-10-14 04:13:16.000000000 +0200
++++ sblim-wbemcli-1.6.3/configure.ac	2015-01-09 15:45:15.813363326 +0100
+@@ -116,12 +116,11 @@
+ AC_HEADER_STDC
+ AC_CHECK_HEADERS([malloc.h stdlib.h string.h])
+ 
+-if test "$wbemcli_enable_swig" = "yes" &&
+-   "$wbemcli_swig" = "yes" && test "$wbemcli_python" = "yes" ; then
++if test "$wbemcli_enable_swig" = "yes" -a "$wbemcli_swig" = "yes" -a "$wbemcli_python" = "yes" ; then
+   case $host_os 
+ # check for Python Include
+     in linux*) 
+-      wbemcli_pythinc=`find /usr/include -name Python.h -printf "%h " | sed 's/ .*$//'`
++      wbemcli_pythinc="$(python -c 'import distutils.sysconfig; print distutils.sysconfig.get_python_inc()' 2>/dev/null)"
+       wbemcli_saveCPPFLAGS=$CPPFLAGS
+       if test -n "$wbemcli_pythinc"; then
+         CPPFLAGS="-I $wbemcli_pythinc $CPPFLAGS"
