@@ -36,7 +36,7 @@ zarządzania systemem, które można wykonywać w skryptach.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__aclocal}
